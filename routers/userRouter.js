@@ -5,6 +5,7 @@ const UserController = require('../controllers/userController');
 router.post('/signup', UserController.singup);
 
 //Endpoint de login de usuarios
+router.post('/login', UserController.login);
 
 //Endpoint de mostrar todos los usuarios
 router.get('/', UserController.getUsers);

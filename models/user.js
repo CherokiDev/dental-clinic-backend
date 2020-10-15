@@ -30,6 +30,9 @@ const UserSchema = mongoose.Schema({
     },
     address: {
         type: Number
+    },
+    token: {
+        type: String
     }
 })
 

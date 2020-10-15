@@ -22,12 +22,15 @@ const UserController = {
         }
 
         try {
-            const user = await new UserModel({
+            const user = await UserModel({
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                password: hashPass
+                password: hashPass,
             }).save();
+
+            user.token = user._id
+            await user.save();
 
             res.status(201).send({
                 message: 'Account created successfully.',
@@ -40,6 +43,33 @@ const UserController = {
                 message: 'There was a problem trying to register the user'
             })
         }
+    },
+    async login(req, res) {
+        let usuarioEncontrado = await UserModel.findOne({
+            email: req.body.email
+        });
+
+        if (!usuarioEncontrado) {
+            res.send({
+                message: "No existe el usuario"
+            })
+        } else {
+
+            let passwordOk = await bcrypt.compare(req.body.password, usuarioEncontrado.password);
+
+            if (passwordOk) {
+                res.send({
+                    name: usuarioEncontrado.username,
+                    email: usuarioEncontrado.email
+                })
+            } else {
+                res.send({
+                    message: "Credenciales incorrectas"
+                })
+            }
+
+        }
+
     },
     async getUsers(req, res) {
         try {
