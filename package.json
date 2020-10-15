@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Cheroki84/appDates#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mongoose": "^5.10.9"
   }
