@@ -2,6 +2,18 @@ const UserModel = require('../models/user');
 const bcrypt = require('bcryptjs');
 
 const UserController = {
+    async getUsers(req, res) {
+        try {
+            const users = await UserModel.find({});
+            res.send(users);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({
+                error,
+                message: 'There was a problem trying to get the users'
+            })
+        }
+    },
     async singup(req, res) {
         let regExEmail = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
         let regExPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
@@ -74,18 +86,23 @@ const UserController = {
         }
 
     },
-    async getUsers(req, res) {
+
+
+    async logout(req, res) {
         try {
-            const users = await UserModel.find({});
-            res.send(users);
+            //const token = { token: token };
+            const email = {
+                email: req.body.email
+            };
+            const emptyToken = {
+                token: null
+            };
+            const user = await UserModel.findOneAndUpdate(email, emptyToken);
         } catch (error) {
-            console.error(error);
-            res.status(500).send({
-                error,
-                message: 'There was a problem trying to get the users'
-            })
+
         }
-    },
+    }
+
     /* getUsers = (req, res) => {
          UserModel.find({})
              .then(users => {
