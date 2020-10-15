@@ -29,8 +29,8 @@ const UserController = {
                 password: hashPass,
             }).save();
 
-            user.token = user._id
-            await user.save();
+            //user.token = user._id
+            //await user.save();
 
             res.status(201).send({
                 message: 'Account created successfully.',
@@ -45,27 +45,30 @@ const UserController = {
         }
     },
     async login(req, res) {
-        let usuarioEncontrado = await UserModel.findOne({
+        let user = await UserModel.findOne({
             email: req.body.email
         });
 
-        if (!usuarioEncontrado) {
+        if (!user) {
             res.send({
                 message: "No existe el usuario"
             })
         } else {
 
-            let passwordOk = await bcrypt.compare(req.body.password, usuarioEncontrado.password);
+            let passwordOk = await bcrypt.compare(req.body.password, user.password);
 
-            if (passwordOk) {
+            if (!passwordOk) {
                 res.send({
-                    name: usuarioEncontrado.username,
-                    email: usuarioEncontrado.email
+                    message: "Credenciales incorrectas"
+
                 })
             } else {
                 res.send({
-                    message: "Credenciales incorrectas"
-                })
+                    firstname: user.firstname,
+                    email: user.email
+                });
+                user.token = user._id
+                await user.save();
             }
 
         }
