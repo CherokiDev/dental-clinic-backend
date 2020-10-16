@@ -6,15 +6,15 @@ const AppointmentSchema = mongoose.Schema({
         required: [true, 'Campo obligatorio']
     },
     date: {
-        type: Date,
-        required: [true, 'Campo obligatorio']
-    },
-    time: {
         type: String,
         required: [true, 'Campo obligatorio']
     },
     observations: {
         type: String
+    },
+    token_id: {
+        type: String,
+        required: true
     }
 })
 

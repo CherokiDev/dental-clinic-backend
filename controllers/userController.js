@@ -108,14 +108,6 @@ const UserController = {
         }
     }
 
-    /* getUsers = (req, res) => {
-         UserModel.find({})
-             .then(users => {
-                 res.send(users)
-             })
-             .catch(error => console.log(error))
-
-     }*/
 }
 
 module.exports = UserController;
