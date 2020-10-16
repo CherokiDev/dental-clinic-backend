@@ -9,7 +9,7 @@ router.post('/newAppointment', AppointmentController.addOne);
 //router.get('/', AppointmentController.getAll);
 
 //Endpoint de eliminación de cita
-//router.delete('/', AppointmentController.deleteOne);
+router.delete('/deleteAppointment/:_id', AppointmentController.deleteOne);
 
 
 

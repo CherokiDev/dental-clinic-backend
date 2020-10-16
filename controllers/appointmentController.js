@@ -4,12 +4,9 @@ const UserModel = require('../models/user');
 
 const AppointmentController = {
     async addOne(req, res) {
-
-
         let user = await UserModel.findOne({
             email: req.body.email
         });
-
 
         if (!user.token) {
             res.status(400).send({
@@ -17,7 +14,6 @@ const AppointmentController = {
             });
 
         }else{
-
         try {
             const appointment = await AppointmentModel({
                 status: req.body.status,
@@ -35,7 +31,25 @@ const AppointmentController = {
             })
         }}
 
+    },
+    async deleteOne(req, res) {
+        try {
+            const appointment = await AppointmentModel.findByIdAndDelete({
+                _id: req.params._id
+            })
+            res.send({
+                message: 'cita borrada',
+                appointment
+            })
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({
+                message: 'error al borrar la cita'
+            })
+            
+        }
     }
+
 }
 
 module.exports = AppointmentController;
