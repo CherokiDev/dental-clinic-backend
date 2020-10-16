@@ -5,19 +5,19 @@ const cors = require('./middleware/cors');
 
 //Importar las rutas
 const usersRouter = require('./routers/userRouter');
-const appointmentRouter = require('./routers/appointmentRouter');
+const appointmentsRouter = require('./routers/appointmentRouter');
 
 //Importar la configuración para la conexión a la base de datos en mongo atlas
 const dbconnect = require('./config/dbconnect');
 dbconnect();
 
 //middleware
-app.use(express.json());
 app.use(cors);
+app.use(express.json());
 
 //Endpoints
 app.use('/users', usersRouter);
-app.use('/appointments', appointmentRouter);
+app.use('/appointments', appointmentsRouter);
 
 
 
