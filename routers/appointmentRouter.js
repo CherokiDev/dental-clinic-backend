@@ -6,7 +6,7 @@ const AppointmentController = require('../controllers/appointmentController');
 router.post('/newAppointment', AppointmentController.addOne);
 
 //Endpoint de listado de citas pendientes
-//router.get('/', AppointmentController.getAll);
+router.get('/getAppointments/:token_id', AppointmentController.getAll);
 
 //Endpoint de eliminación de cita
 router.delete('/deleteAppointment/:_id', AppointmentController.deleteOne);

@@ -48,6 +48,23 @@ const AppointmentController = {
             })
             
         }
+    },
+
+    async getAll(req, res) {
+        try {
+            const appointment = await AppointmentModel.find({
+                token_id: req.params.token_id
+            })
+            res.send({
+                appointment
+            })
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({
+                message: 'no se pueden mostrar las citas'
+            })
+            
+        }
     }
 
 }
