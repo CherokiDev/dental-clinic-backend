@@ -10,7 +10,7 @@ const AppointmentController = {
 
         if (!user.token) {
             res.status(400).send({
-                message: 'Debes estar logeado'
+                message: 'You must be registered and logged in'
             });
 
         }else{
@@ -20,14 +20,15 @@ const AppointmentController = {
                 date: req.body.date,
                 token_id: user.token
             }).save();
-            res.status(201).send(
+            res.status(201).send({
+                message: `appointment successfully created`,
                 appointment
-            );
+            });
         } catch (error) {
             console.error(error);
             res.status(500).send({
                 error,
-                message: 'Error tal'
+                message: 'An error occurred while trying to create your appointment'
             })
         }}
 
@@ -38,13 +39,13 @@ const AppointmentController = {
                 _id: req.params._id
             })
             res.send({
-                message: 'cita borrada',
+                message: 'Your appointment has been successfully deleted',
                 appointment
             })
         } catch (error) {
             console.error(error);
             res.status(500).send({
-                message: 'error al borrar la cita'
+                message: 'An error occurred while trying to delete your appointment'
             })
             
         }
@@ -61,7 +62,7 @@ const AppointmentController = {
         } catch (error) {
             console.error(error);
             res.status(500).send({
-                message: 'no se pueden mostrar las citas'
+                message: 'An error occurred while trying to display your appointments'
             })
             
         }
