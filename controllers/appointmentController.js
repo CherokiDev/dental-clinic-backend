@@ -1,5 +1,6 @@
 const AppointmentModel = require('../models/appointment');
 const UserModel = require('../models/user');
+const moment = require('moment');
 
 
 const AppointmentController = {
@@ -16,12 +17,11 @@ const AppointmentController = {
         }else{
         try {
             const appointment = await AppointmentModel({
-                status: req.body.status,
-                date: req.body.date,
-                token_id: user.token
+                date: moment().add(3, 'days').calendar(),
+                token_user: user.token
             }).save();
             res.status(201).send({
-                message: `appointment successfully created`,
+                message: `Appointment successfully created`,
                 appointment
             });
         } catch (error) {
@@ -54,7 +54,7 @@ const AppointmentController = {
     async getAll(req, res) {
         try {
             const appointment = await AppointmentModel.find({
-                token_id: req.params.token_id
+                token_user: req.params.token_user
             })
             res.send({
                 appointment
