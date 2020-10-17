@@ -3,7 +3,7 @@ const AppointmentController = require('../controllers/appointmentController');
 
 
 //Endpoint de creación de una cita nueva
-router.post('/newAppointment', AppointmentController.addOne);
+router.post('/newAppointment/:email', AppointmentController.addOne);
 
 //Endpoint de listado de citas pendientes
 router.get('/getAppointments/:token_id', AppointmentController.getAll);

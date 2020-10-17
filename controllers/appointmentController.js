@@ -5,7 +5,7 @@ const UserModel = require('../models/user');
 const AppointmentController = {
     async addOne(req, res) {
         let user = await UserModel.findOne({
-            email: req.body.email
+            email: req.params.email
         });
 
         if (!user.token) {

@@ -76,8 +76,7 @@ const UserController = {
                 })
             } else {
                 res.send({
-                    firstname: user.firstname,
-                    email: user.email
+                    message: `Bienvenid@ ${user.firstname}`
                 });
                 user.token = user._id
                 await user.save();
@@ -98,7 +97,9 @@ const UserController = {
                 token: ""
             };
             const user = await UserModel.findOneAndUpdate(email, emptyToken);
-            res.send(`${user.email} has logout`)
+            res.send({
+                message:`Hasta la próxima ${user.firstname}`
+            });
         } catch (error) {
             console.error(error);
             res.status(500).send({
