@@ -45,15 +45,23 @@ const UserController = {
                 lastname: req.body.lastname,
                 email: req.body.email,
                 password: hashPass,
-            }).save();
+            })
+            const email = await UserModel.findOne({
+                email: req.body.email
+            })
 
-            //user.token = user._id
-            //await user.save();
+            if (!email) {
+                res.send({
+                    message: 'Account created successfully',
+                    user
+                })
+                return user.save();
+            } else
+                res.send({
+                    message: 'Sorry, but that email is already registered. Choose another email'
+                });
 
-            res.status(201).send({
-                message: 'Account created successfully.',
-                user
-            });
+
         } catch (error) {
             console.error(error);
             res.status(500).send({
@@ -104,7 +112,7 @@ const UserController = {
             };
             const user = await UserModel.findOneAndUpdate(email, emptyToken);
             res.send({
-                message:`Goodbye ${user.firstname}!`
+                message: `Goodbye ${user.firstname}!`
             });
         } catch (error) {
             console.error(error);
