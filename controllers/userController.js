@@ -61,7 +61,6 @@ const UserController = {
                     message: 'Sorry, but that email is already registered. Choose another email'
                 });
 
-
         } catch (error) {
             console.error(error);
             res.status(500).send({

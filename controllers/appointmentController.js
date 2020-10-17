@@ -18,7 +18,8 @@ const AppointmentController = {
         try {
             const appointment = await AppointmentModel({
                 date: moment().add(3, 'days').calendar(),
-                token_user: user.token
+                token_user: user.token,
+                email_user: user.email
             }).save();
             res.status(201).send({
                 message: `Appointment successfully created`,
