@@ -1,8 +1,11 @@
 # appDates
-## Qué es appDates? 🤔
-appDates es una aplicación para poder gestionar las citas de las que un usuario dispone. En este caso, se trata de citas para una clínica dental.
-> Nota: Este repositorio es el backend de la aplicación.
-## Tecnologías usadas 🛠️
+## What is appDates? 🤔
+appDates is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.
+> Note: This repository is the backend of the application.
+
+
+
+## Technologies used 🛠️
 - JavaScript
 - NodeJS 
 - Express
@@ -15,13 +18,13 @@ appDates es una aplicación para poder gestionar las citas de las que un usuario
 - Gitflow
 - RegEx
 
-## Dependencias necesarias 📋
+## Necessary dependencies 📋
 - bcryptjs
 - express
 - mongoose
 
-## Aplicación en funcionamiento ⚙️
-#### Gestión de usuario
+## Running application ⚙️
+#### User management
 - signup
 ![](img/readme/signup.gif)
 ###
@@ -31,7 +34,7 @@ appDates es una aplicación para poder gestionar las citas de las que un usuario
 - logout
 ![](img/readme/logout.gif)
 
-#### Gestión de citas
+#### Appointment management
 - newAppointment
 ![](img/readme/newAppointment.gif)
 ###
