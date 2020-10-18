@@ -17,6 +17,7 @@ appDates is an application to manage the appointments that a user has. In this c
 - Github
 - Gitflow
 - RegEx
+- Moment
 
 ## Necessary dependencies 📋
 - bcryptjs
