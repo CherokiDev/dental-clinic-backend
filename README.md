@@ -24,6 +24,11 @@ appDates is an application to manage the appointments that a user has. In this c
 - express
 - mongoose
 
+## Installation required ❗
+> $ npm init -y
+
+> $ npm i bcryptjs express moment mongoose
+
 ## Running application ⚙️
 #### User management
 - signup

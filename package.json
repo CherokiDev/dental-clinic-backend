@@ -1,7 +1,7 @@
 {
   "name": "appDates",
   "version": "1.0.0",
-  "description": "",
+  "description": "appDates is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.\r > Note: This repository is the backend of the application.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
