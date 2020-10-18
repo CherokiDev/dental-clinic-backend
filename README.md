@@ -37,20 +37,20 @@ appDates is an application to manage the appointments that a user has. In this c
 #### User management 
 - signup
 ![](img/readme/signup.gif)
-<br>
+###
 - login
 ![](img/readme/logi.gif)
-<br>
+###
 - logout
 ![](img/readme/logout.gif)
 
 #### Appointment management
 - newAppointment
 ![](img/readme/newAppointment.gif)
-<br>
+###
 - getAppointments
 ![](img/readme/getAppointments.gif)
-<br>
+###
 - deleteAppointment
 ![](img/readme/deleteAppointment.gif)
 
