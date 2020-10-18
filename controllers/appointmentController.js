@@ -1,5 +1,6 @@
 const AppointmentModel = require('../models/appointment');
 const UserModel = require('../models/user');
+const moment = require('moment');
 
 
 const AppointmentController = {
@@ -10,24 +11,25 @@ const AppointmentController = {
 
         if (!user.token) {
             res.status(400).send({
-                message: 'Debes estar logeado'
+                message: 'You must be registered and logged in'
             });
 
         }else{
         try {
             const appointment = await AppointmentModel({
-                status: req.body.status,
-                date: req.body.date,
-                token_id: user.token
+                date: moment().add(3, 'days').calendar(),
+                token_user: user.token,
+                email_user: user.email
             }).save();
-            res.status(201).send(
+            res.status(201).send({
+                message: `Appointment successfully created`,
                 appointment
-            );
+            });
         } catch (error) {
             console.error(error);
             res.status(500).send({
                 error,
-                message: 'Error tal'
+                message: 'An error occurred while trying to create your appointment'
             })
         }}
 
@@ -38,13 +40,13 @@ const AppointmentController = {
                 _id: req.params._id
             })
             res.send({
-                message: 'cita borrada',
+                message: 'Your appointment has been successfully deleted',
                 appointment
             })
         } catch (error) {
             console.error(error);
             res.status(500).send({
-                message: 'error al borrar la cita'
+                message: 'An error occurred while trying to delete your appointment'
             })
             
         }
@@ -53,7 +55,7 @@ const AppointmentController = {
     async getAll(req, res) {
         try {
             const appointment = await AppointmentModel.find({
-                token_id: req.params.token_id
+                token_user: req.params.token_user
             })
             res.send({
                 appointment
@@ -61,7 +63,7 @@ const AppointmentController = {
         } catch (error) {
             console.error(error);
             res.status(500).send({
-                message: 'no se pueden mostrar las citas'
+                message: 'An error occurred while trying to display your appointments'
             })
             
         }

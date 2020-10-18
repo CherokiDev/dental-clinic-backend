@@ -16,8 +16,7 @@ const UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Campo obligatorio'],
-        minlength: [6, 'Requerido 6 caracteres mínimo']
+        required: [true, 'Campo obligatorio']
     },
     phone: {
         type: Number

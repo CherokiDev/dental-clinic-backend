@@ -20,16 +20,22 @@ const UserController = {
         let hashPass = await bcrypt.hash(req.body.password, 10);
 
         if (!regExEmail.test(req.body.email)) {
-            res.send({
-                message: "El email introducido no es válido"
-            });
+            res.send(
+                `The email is not valid, it must be like the following example:
+                - user@example.com`
+            );
             return;
         }
 
         if (!regExPassword.test(req.body.password)) {
-            res.send({
-                message: "El password introducido no es válido"
-            });
+            res.send(
+                `The password is not in the correct format, it must contain:
+                - Between 8 and 16 characters
+                - At least 1 number
+                - At least 1 lowercase letter
+                - At least 1 uppercase letters
+                - At least 1 special character`
+            );
             return;
         }
 
@@ -39,15 +45,22 @@ const UserController = {
                 lastname: req.body.lastname,
                 email: req.body.email,
                 password: hashPass,
-            }).save();
+            })
+            const email = await UserModel.findOne({
+                email: req.body.email
+            })
 
-            //user.token = user._id
-            //await user.save();
+            if (!email) {
+                res.send({
+                    message: 'Account created successfully',
+                    user
+                })
+                return user.save();
+            } else
+                res.send({
+                    message: 'Sorry, but that email is already registered. Choose another email'
+                });
 
-            res.status(201).send({
-                message: 'Account created successfully.',
-                user
-            });
         } catch (error) {
             console.error(error);
             res.status(500).send({
@@ -62,22 +75,22 @@ const UserController = {
         });
 
         if (!user) {
-            res.send({
-                message: "No existe el usuario"
-            })
+            res.send(
+                `There is no registered user with this email.
+                Sign up!`
+            )
         } else {
 
             let passwordOk = await bcrypt.compare(req.body.password, user.password);
 
             if (!passwordOk) {
-                res.send({
-                    message: "Credenciales incorrectas"
-
-                })
+                res.send(
+                    `Wrong credentials`
+                )
             } else {
-                res.send({
-                    message: `Bienvenid@ ${user.firstname}`
-                });
+                res.send(
+                    `Welcome ${user.firstname}!`
+                );
                 user.token = user._id
                 await user.save();
             }
@@ -98,7 +111,7 @@ const UserController = {
             };
             const user = await UserModel.findOneAndUpdate(email, emptyToken);
             res.send({
-                message:`Hasta la próxima ${user.firstname}`
+                message: `Goodbye ${user.firstname}!`
             });
         } catch (error) {
             console.error(error);
