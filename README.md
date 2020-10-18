@@ -57,31 +57,31 @@ appDates is an application to manage the appointments that a user has. In this c
 
 ## All endpoints ⚫
 
-##### Endpoints of Admin
+### Endpoints of Admin
 - GET all users
     - /admin/allUsers
-<br>
+###
 - GET all appointments
     - /admin/allAppointments/
-<br>
+###
 
-##### Endpoints of Users
+### Endpoints of Users
 - POST sign up
     - /users/signup/
-<br>
+###
 - POST login
     - /users/login
-<br>
+###
 - PUT logout
     - /users/logout
-<br>
+###
 
-##### Endpoints of Appointments
+### Endpoints of Appointments
 - GET appointments
     - /appointments/getAppointments/<<<user's token>>>
-<br>
+####
 - POST new appointment
     - /appointments/newAppointment/>>>user's email<<<
-<br>
+####
 - DELETE appointment
     - /appointments/deleteAppointment/<<<appointment's id>>>
