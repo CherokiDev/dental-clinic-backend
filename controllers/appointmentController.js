@@ -4,18 +4,6 @@ const moment = require('moment');
 
 
 const AppointmentController = {
-    async getAppointments (req, res) {
-        try {
-            const appointments = await AppointmentModel.find({});
-            res.send(appointments);
-        } catch (error) {
-            console.error(error);
-            res.status(500).send({
-                error,
-                message: 'There was a problem trying to get the appointments'
-            })
-        }
-    },
     async addOne(req, res) {
         let user = await UserModel.findOne({
             email: req.params.email

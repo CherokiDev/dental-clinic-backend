@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3000;
 const cors = require('./middleware/cors');
 
 //Importar las rutas
+const adminRouter = require('./routers/adminRouter');
 const usersRouter = require('./routers/userRouter');
 const appointmentsRouter = require('./routers/appointmentRouter');
 
@@ -16,6 +17,7 @@ app.use(cors);
 app.use(express.json());
 
 //Endpoints
+app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 app.use('/appointments', appointmentsRouter);
 

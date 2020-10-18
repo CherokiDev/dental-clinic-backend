@@ -1,9 +1,6 @@
 const router = require('express').Router();
 const UserController = require('../controllers/userController');
 
-//Endpoint de mostrar todos los usuarios
-router.get('/allUsers', UserController.getUsers);
-
 //Endpoint de registro de usuarios
 router.post('/signup', UserController.singup);
 
