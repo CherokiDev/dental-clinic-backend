@@ -18,11 +18,13 @@ appDates is an application to manage the appointments that a user has. In this c
 - Gitflow
 - RegEx
 - Moment
+- Heroku
 
 ## Necessary dependencies 📋
 - bcryptjs
 - express
 - mongoose
+- moment
 
 ## Installation required ❗
 > $ npm init -y

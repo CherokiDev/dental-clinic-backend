@@ -19,7 +19,7 @@ const UserSchema = mongoose.Schema({
         required: [true, 'Campo obligatorio']
     },
     phone: {
-        type: Number
+        type: String
     },
     photo: {
         type: String
@@ -28,7 +28,7 @@ const UserSchema = mongoose.Schema({
         type: String
     },
     address: {
-        type: Number
+        type: String
     },
     token: {
         type: String
