@@ -30,12 +30,11 @@ AppAppointmentsBackend is an application to manage the appointments that a user 
 ## Steps to run the application 🚀
 > - Download the [repository](https://github.com/Cheroki84/AppAppointmentsBackend.git)
 >- Initialize npm and install the necessary dependencies:
->   - $ npm init -y
 >   - $ npm i
 >- Run the app:
 >   - $ npm run start
 
-> Note: The application is uploaded to [Heroku](https://appdatesbackend.herokuapp.com)
+> Note: The application is uploaded to [Heroku](https://appappointments.herokuapp.com/)
 ---
 ## Some working samples ⚙️
 ### User management 
