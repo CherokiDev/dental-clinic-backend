@@ -1,7 +1,7 @@
 {
-  "name": "appDates",
+  "name": "AppAppointmentsBackend",
   "version": "1.0.0",
-  "description": "appDates is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.\r > Note: This repository is the backend of the application.",
+  "description": "AppAppointmentsBackend is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.\r > Note: This repository is the backend of the application.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cheroki84/appDates.git"
+    "url": "git+https://github.com/Cheroki84/AppAppointmentsBackend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Cheroki84/appDates/issues"
+    "url": "https://github.com/Cheroki84/AppAppointmentsBackend/issues"
   },
-  "homepage": "https://github.com/Cheroki84/appDates#readme",
+  "homepage": "https://github.com/Cheroki84/AppAppointmentsBackend#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",

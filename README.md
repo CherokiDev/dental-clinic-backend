@@ -1,9 +1,9 @@
-![](https://visitor-badge.glitch.me/badge?page_id=cheroki84.appDates)
+![](https://visitor-badge.glitch.me/badge?page_id=cheroki84.AppAppointmentsBackend)
 
 ---
 # appDates 🦷
-## What is appDates? 🤔
-appDates is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.
+## What is AppAppointmentsBackend? 🤔
+AppAppointmentsBackend is an application to manage the appointments that a user has. In this case, it is about appointments for a dental clinic.
 > Note: This repository is the backend of the application.
 ---
 ## Technologies used 🛠️
