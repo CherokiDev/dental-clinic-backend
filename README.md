@@ -28,7 +28,7 @@ appDates is an application to manage the appointments that a user has. In this c
 - moment
 ---
 ## Steps to run the application 🚀
-> - Download the [repository](https://github.com/Cheroki84/appDates.git)
+> - Download the [repository](https://github.com/Cheroki84/AppAppointmentsBackend.git)
 >- Initialize npm and install the necessary dependencies:
 >   - $ npm init -y
 >   - $ npm i
