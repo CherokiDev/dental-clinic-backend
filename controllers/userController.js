@@ -81,11 +81,12 @@ const UserController = {
                     `Wrong credentials`
                 )
             } else {
-                res.send(
-                    `Welcome ${user.firstname}!`
-                );
                 user.token = user._id
                 await user.save();
+                res.send({
+                    message: 'Welcome',
+                    user
+                });
             }
 
         }
