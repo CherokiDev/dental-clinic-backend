@@ -8,7 +8,7 @@ router.post('/signup', UserController.singup);
 router.post('/login', UserController.login);
 
 //Endpoint de logout de usuarios
-router.put('/logout', UserController.logout)
+router.put('/logout/:email', UserController.logout)
 
 
 

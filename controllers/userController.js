@@ -101,7 +101,7 @@ const UserController = {
         try {
             //const token = { token: token };
             const email = {
-                email: req.body.email
+                email: req.params.email
             };
             const emptyToken = {
                 token: ""
