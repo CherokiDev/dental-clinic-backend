@@ -36,10 +36,11 @@ const UserController = {
                 phone: req.body.phone,
                 photo: req.body.photo,
                 birthdate: req.body.birthdate,
-                address: req.body.address,
-                token: ""
-            })
-            const email = await UserModel.findOne({
+                address: req.body.address
+            }).save();
+            await user.save(user.token = user._id);
+            res.status(201).send(user);
+           /*  const email = await UserModel.findOne({
                 email: req.body.email
             })
 
@@ -48,11 +49,11 @@ const UserController = {
                     message: 'Account created successfully',
                     user
                 })
-                return user.save();
+                
             } else
                 res.send({
                     message: 'Sorry, but that email is already registered. Choose another email'
-                });
+                }); */
 
         } catch (error) {
             console.error(error);
