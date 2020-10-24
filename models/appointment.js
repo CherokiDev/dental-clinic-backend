@@ -15,8 +15,8 @@ const AppointmentSchema = mongoose.Schema({
         type: String
     },
     token_user: {
-        type: String,
-        required: true
+        type: String
+        //required: true
     },
     email_user: {
         type: String

@@ -5,7 +5,7 @@ const moment = require('moment');
 
 const AppointmentController = {
     async addOne(req, res) {
-        let user = await UserModel.findOne({
+         let user = await UserModel.findOne({
             email: req.params.email
         });
 
@@ -14,15 +14,15 @@ const AppointmentController = {
                 message: 'You must be registered and logged in'
             });
 
-        }else{
+        }else{ 
         try {
             const appointment = await AppointmentModel({
-                date: moment().add(3, 'days').calendar(),
-                token_user: user.token,
-                email_user: user.email
+                date: req.body.date,
+                email_user: user.email,
+                observations: req.body.observations,
+                token_user: user.token
             }).save();
             res.status(201).send({
-                message: `Appointment successfully created`,
                 appointment
             });
         } catch (error) {
@@ -32,7 +32,6 @@ const AppointmentController = {
                 message: 'An error occurred while trying to create your appointment'
             })
         }}
-
     },
     async deleteOne(req, res) {
         try {
@@ -57,7 +56,7 @@ const AppointmentController = {
             const appointment = await AppointmentModel.find({
                 token_user: req.params.token_user
             })
-            res.send({
+            res.status(201).send({
                 appointment
             })
         } catch (error) {

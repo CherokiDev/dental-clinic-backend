@@ -77,15 +77,17 @@ const UserController = {
             let passwordOk = await bcrypt.compare(req.body.password, user.password);
 
             if (!passwordOk) {
-                res.send(
-                    `Wrong credentials`
-                )
+                res.status(400).send({
+                    message: "Wrong credential"
+                })
             } else {
                 user.token = user._id
                 await user.save();
                 res.send({
-                    message: 'Welcome',
-                    user
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    email: user.email,
+                    token: user.token
                 });
             }
 

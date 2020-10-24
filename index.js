@@ -16,6 +16,8 @@ dbconnect();
 app.use(cors);
 app.use(express.json());
 
+app.options('/*', (req, res) => res.send());
+
 //Endpoints
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
