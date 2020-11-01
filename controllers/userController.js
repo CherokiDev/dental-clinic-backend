@@ -69,17 +69,16 @@ const UserController = {
         });
 
         if (!user) {
-            res.send(
-                `There is no registered user with this email.
-                Sign up!`
-            )
+            res.status(400).send({
+                message: 'There is no registered user with this email. Sign up!'
+            })
         } else {
 
             let passwordOk = await bcrypt.compare(req.body.password, user.password);
 
             if (!passwordOk) {
                 res.status(400).send({
-                    message: "Wrong credential"
+                    message: "Wrong credentials"
                 })
             } else {
                 user.token = user._id
